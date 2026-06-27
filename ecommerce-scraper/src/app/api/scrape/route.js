@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { mockScrape } from '@/lib/scraper';
+import { realScrape } from '@/lib/scraper';
 
 export async function POST(request) {
   try {
@@ -11,7 +11,7 @@ export async function POST(request) {
     }
 
     // 在服务端执行抓取逻辑（此处调用 mock 演示版）
-    const data = await mockScrape(keyword);
+    const data = await realScrape(keyword);
 
     return NextResponse.json({ success: true, data });
   } catch (error) {
